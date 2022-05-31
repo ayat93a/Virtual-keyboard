@@ -1,46 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    margin: 25px;
-    text-align: center;
-    background-color: aliceblue;
+    font-family: 'lato' , sans-serif;
+    transition: .2s;
 }
-h1 {
-    color: turquoise;
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    margin: 0 10px;
 }
-.virtual-keyboard .row.spacebar input {
-    padding: 10px 150px;
+
+.keyboard_wrapp {
+    max-width: 1008px;
+    width: 100%;
+    background-color: #e7e7e7;
+    overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    order: 2;
 }
-.virtual-keyboard input[type = "button"]{
-    padding: 10px 20px;
-    border-radius: 30px;
-    border: 3px solid #202c2b;
-    background: #13ab9e;
-    color: #fff;
-    text-transform: uppercase;
+.row {
+    display: flex;
 }
-.virtual-keyboard input[type = "button"].shift-activated{
-    background: red;
+.keys {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    transition: .2s;
+    z-index: 5;
 }
-.virtual-keyboard input[type ="button"].delete,.virtual-keyboard input[type="button"].shift{
-    text-transform: none;
+.backspace_key {
+    width: 120px;
 }
-.output{
-    margin: 15px;
+.tab_key {
+    width: 90px;
 }
-.output input {
-    color: white;
-    background: black;
-    border: 0px;
-    line-height: 2.2em;
-    text-align: center;
-    font-size: 2em;
+.slash_key{
+    width: 90px;
+}
+.capslock_key{
+    width: 128px;
+}
+.enter_key{
+    width: 120px;
+}
+.shift_key{
+    width: 124px;
+}
+.space_key{
+    max-width: 600px;
     width: 100%;
 }
-.output input:focus{
+.text {
+    max-width: 1008px;
+    width: 100%;
+    height: 90px;
+    margin-bottom: 30px;
+    border: none;
     outline: none;
-    border: 0px;
+    font-size: 26px;
+    background-color: #f7f7f7;
+    padding-left: 10px;
+    transition: .2s;
 }
-.output::-webkit-input-placeholder{
-    color: white;
-    text-align: center;
-    font-size: 1em;
+.keys.active {
+    background-color: #333;
+    color: #fff;
+}
+.keys.remove {
+    animation: keys_animation 0.5s forwards;
+}
+@keyframes keys_animation {
+    0%{
+        background-color: #333;
+        color: #fff;
+    }
+    100%{
+        background-color: #fff;
+        color: #000;
+    }
+}
+body.active {
+    background-color: rgb(54, 54,54);
+}
+.night_mode{
+    width: 80px;
+    height: 30px;
+    background-color: #e6e6e6;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+}
+.night_mode.active {
+    background-color: #22222222;
+}
+.toggle_circle{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(54, 54, 54);
+    border-radius: 50px;
+    margin: 0 5px;
+    position: absolute;
+    left: 0;
+    transition: .2s;
+}
+.toggle_circle.active {
+    left: 60%;
+    background-color: #fff;
+}
+.keyboard_wrapp.active {
+    background-color: #585858;
+}
+.keys.keys.night {
+    background-color: #2b2b2b;
+    color: #fff;
+}
+.text.active {
+    background-color: #2b2b2b;
+    color: #fff;
+}
+
+.keys.keys_night.active {
+    background-color: #fff;
+    color: #333;
+}
+
+.keys.keys_night.remove {
+    animation: keys_night_animation 0.5s forwards;
+}
+
+@keyframes keys_night_animation {
+    0%{
+        background-color: #fff;
+        color: #000;
+    }
+    100% {
+        background-color: #333;
+        color: #fff;
+    }
+}
+
+.change_light_color {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    right: 150px;
+    top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colors_input {
+    width: 100px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+
+.keyboard_lights {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
